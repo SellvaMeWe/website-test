@@ -371,6 +371,15 @@ a {
   overflow: hidden;
 }
 
+@media (min-width: 2220px) {
+  .section-end .third-background {
+    top: -150px;
+    left: 24%;
+    width: 1900px;
+    height: 986px;
+  }
+}
+
 @media (max-width: 1280px) {
   .section-end .third-background {
     top: -150px;
