@@ -590,12 +590,83 @@ a {
 .card-image {
   position: absolute;
   top: 20px;
-  left: -22px;
+  left: -2%;
+}
+
+@media (max-width: 1520px) {
+  .card-image {
+    top: 20px;
+    left: -4%;
+  }
+}
+
+@media (max-width: 1180px) {
+  .card-image {
+    top: 20px;
+    left: -6%;
+  }
+}
+
+@media (max-width: 900px) {
+  .card-image {
+    top: 20px;
+    left: -8%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-image {
+    top: -70px;
+    left: 34px;
+  }
 }
 
 @media (max-width: 425px) {
   .card-image {
     top: -43px;
+    left: 34px;
+    width: 72px;
+    height: 72px;
+  }
+}
+
+.hand-image {
+  position: absolute;
+  top: 46px;
+  left: -4%;
+}
+
+@media (max-width: 1520px) {
+  .hand-image {
+    top: 46px;
+    left: -5%;
+  }
+}
+
+@media (max-width: 1180px) {
+  .hand-image {
+    top: 46px;
+    left: -7%;
+  }
+}
+
+@media (max-width: 900px) {
+  .hand-image {
+    top: 46px;
+    left: -10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hand-image {
+    top: -52px;
+    left: 34px;
+  }
+}
+
+@media (max-width: 425px) {
+  .hand-image {
+    top: -40px;
     left: 34px;
     width: 72px;
     height: 72px;
