@@ -698,3 +698,81 @@ a {
   font-weight: 500;
   line-height: 24px; 
 }
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  color: #f7f7f7;
+  background-color: #575757;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-family: "IBM Plex Mono";
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 40px;
+}
+
+#waitlistForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#waitlistForm input {
+  padding: 10px;
+  border-radius: 999px;
+  background-color: #858585;
+  color: #f7f7f7;
+}
+
+#waitlistForm input:focus-visible {
+  outline: none;
+}
+
+#waitlistForm input::placeholder {
+  color: #f7f7f7;
+}
+
+.waitlist-submit {
+  padding: 10px 20px;
+  background-color: #B8D500;
+  color: #141414;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  text-align: center;
+  font-family: "IBM Plex Mono";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; 
+}
+
+.waitlist-submit:hover {
+  opacity: 0.9;
+}

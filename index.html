@@ -23,7 +23,7 @@
               management been so rewarding, transparent and decentralized. We are the blockchain for all communities,
               empowering collective value creation for everyone.<br /><br />Let&#39;s empower your community today!
             </p>
-            <a href="https://zcmp.eu/kr3m" target="_blank" class="waitlist-button">Join the waitlist</a>
+            <button class="waitlist-button" onclick="openModal()">Join the waitlist</button>
           </div>
         </div>    
       </div>
@@ -99,11 +99,45 @@
               Soshi supports creators, communities and builders. Let's work together to create social dApps that are putting the users at the heart of the blockchain. When your community needs to shine, Soshi is here to help make that happen. Connect with us and explore the exciting future of online spaces designed to put you and your community first. 
             </p>
             <span class="end-ready">Ready to join the world of Soshi?</span>
-            <a href="https://zcmp.eu/kr3m" target="_blank" class="waitlist-button">Join the waitlist</a>
+            <button class="waitlist-button" onclick="openModal()">Join the waitlist</button>
           </div>
         </div>  
       </div>
     </div>
+    <div id="waitlistModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2 class="modal-title">Join The Waitlist</h2>
+        <form id="waitlistForm">
+          <input type="email" id="email" aria-label="Enter your email" placeholder="Enter your email" required>
+          <button type="submit" class="waitlist-submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      const modal = document.getElementById("waitlistModal");
+
+      function openModal() {
+        modal.style.display = "block";
+      }
+
+      function closeModal() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          closeModal();
+        }
+      }
+
+      document.getElementById("waitlistForm").onsubmit = function(e) {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        console.log("Email submitted:", email);
+        closeModal();
+      }
+    </script>
   </body>
   <footer>
     <div class="footer-content">
