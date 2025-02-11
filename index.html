@@ -23,9 +23,9 @@
               management been so rewarding, transparent and decentralized. We are the blockchain for all communities,
               empowering collective value creation for everyone.<br /><br />Let&#39;s empower your community today!
             </p>
-            <button class="waitlist-button" onclick="openModal()">Join the waitlist</button>
+            <button class="waitlist-button" type="button" onclick="openModal()">Join the waitlist</button>
           </div>
-        </div>    
+        </div>
       </div>
     </div>
     <div class="section section-about">
@@ -96,12 +96,12 @@
           <div class="end-content">
             <h1 class="section-title">the future of Social<br />is soshi</h1>
             <p class="end-description">
-              Soshi supports creators, communities and builders. Let's work together to create social dApps that are putting the users at the heart of the blockchain. When your community needs to shine, Soshi is here to help make that happen. Connect with us and explore the exciting future of online spaces designed to put you and your community first. 
+              Soshi supports creators, communities and builders. Let's work together to create social dApps that are putting the users at the heart of the blockchain. When your community needs to shine, Soshi is here to help make that happen. Connect with us and explore the exciting future of online spaces designed to put you and your community first.
             </p>
             <span class="end-ready">Ready to join the world of Soshi?</span>
             <button class="waitlist-button" onclick="openModal()">Join the waitlist</button>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
     <div id="waitlistModal" class="modal">
@@ -109,7 +109,8 @@
         <span class="close-button" onclick="closeModal()">&times;</span>
         <h2 class="modal-title">Join The Waitlist</h2>
         <form id="waitlistForm">
-          <input type="email" id="email" aria-label="Enter your email" placeholder="Enter your email" required>
+          <input type="email" id="email" aria-label="Enter your email" placeholder="Enter your email" required onkeyup="removeError()">
+          <span class="modal-error">Please enter a valid email address.</span>
           <button type="submit" class="waitlist-submit">Submit</button>
         </form>
       </div>
@@ -118,11 +119,11 @@
       const modal = document.getElementById("waitlistModal");
 
       function openModal() {
-        modal.style.display = "block";
+        modal.classList.add("open");
       }
 
       function closeModal() {
-        modal.style.display = "none";
+        modal.classList.remove("open");
       }
 
       window.onclick = function(event) {
@@ -131,11 +132,27 @@
         }
       }
 
+      function removeError() {
+        const emailError = document.querySelector("#waitlistForm");
+        emailError.classList.remove("error");
+      }
+
       document.getElementById("waitlistForm").onsubmit = function(e) {
         e.preventDefault();
-        const email = document.getElementById("email").value;
-        console.log("Email submitted:", email);
-        closeModal();
+        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const email = (document.getElementById("email").value || '').trim();
+        if (!emailRegex.test(email)) {
+          const emailError = document.querySelector("#waitlistForm");
+          emailError.classList.add("error");
+          return;
+        }
+
+        document.querySelector("#waitlistForm").remove();
+        document.querySelector(".modal-title").innerHTML = "Thank you for joining the waitlist!";
+
+        setTimeout(() => {
+          closeModal();
+        }, 3000);
       }
     </script>
   </body>
