@@ -806,7 +806,22 @@ a {
   font-family: sans-serif;
 }
 
+#waitlistForm .modal-error-generic {
+  color: #EB6C66;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+  display: none;
+  margin-top: 4px;
+  font-family: sans-serif;
+}
+
 #waitlistForm.error .modal-error {
+  color: #EB6C66;
+  display: block;
+}
+
+#waitlistForm.error-generic .modal-error-generic {
   color: #EB6C66;
   display: block;
 }
