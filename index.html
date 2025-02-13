@@ -114,6 +114,7 @@
           <span class="modal-error-generic">Sorry, something went wrong. Please try again later.</span>
           <button type="submit" class="waitlist-submit">Submit</button>
         </form>
+        <p class="modal-success"/>
       </div>
     </div>
     <script>
@@ -164,7 +165,8 @@
         }
 
         document.querySelector("#waitlistForm").remove();
-        document.querySelector(".modal-title").innerHTML = "Thank you for joining the waitlist!";
+        document.querySelector(".modal-title").innerHTML = "Thank you for subscribing!";
+        document.querySelector(".modal-success").innerHTML = "Please check your inbox and click the confirmation link we just sent you to complete your subscription. If you don't see the email, please check your spam folder.";
 
         setTimeout(() => {
           closeModal();
