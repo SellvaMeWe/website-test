@@ -114,7 +114,8 @@
           <span class="modal-error-generic">Sorry, something went wrong. Please try again later.</span>
           <button type="submit" class="waitlist-submit">Submit</button>
         </form>
-        <p class="modal-success"/>
+        <p class="modal-success success-1"/>
+        <p class="modal-success success-2"/>
       </div>
     </div>
     <script>
@@ -148,8 +149,8 @@
           emailError.classList.add("error");
           return;
         }
+        const submitButton = document.querySelector('.waitlist-submit');
         try {
-          const submitButton = document.querySelector('.waitlist-submit');
           submitButton.disabled = true;
           submitButton.innerHTML = 'Submitting...';
           const response = await fetch('https://wojtek2.ci.k8s.sgr-labs.com/api/v2/subscribe', {
@@ -164,16 +165,19 @@
         } catch (error) {
           const emailError = document.querySelector("#waitlistForm");
           emailError.classList.add("error-generic");
+          submitButton.disabled = false;
+          submitButton.innerHTML = 'Submit';
           return;
         }
 
         document.querySelector("#waitlistForm").remove();
         document.querySelector(".modal-title").innerHTML = "Thank you for subscribing!";
-        document.querySelector(".modal-success").innerHTML = "Please check your inbox and click the confirmation link we just sent you to complete your subscription. If you don't see the email, please check your spam folder.";
+        document.querySelector(".success-1").innerHTML = "Please check your inbox and click the confirmation link we just sent you to complete your subscription.";
+        document.querySelector(".success-2").innerHTML = "If you don't see the email, please check your spam folder.";
 
         setTimeout(() => {
           closeModal();
-        }, 3000);
+        }, 4000);
       }
     </script>
   </body>
